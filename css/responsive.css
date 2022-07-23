@@ -1,0 +1,134 @@
+@media (max-width: 1000px){
+    main .container-main div{
+        margin: auto;
+    }
+    main .container-main img{
+        display: none;
+    }
+    h2 {
+        margin-left: 50px;
+    }
+    div h3 {
+        margin-left: 50px;
+    }
+    form{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-top: 30px;
+        text-align: center;
+        flex-direction: column;
+    }
+    input {
+        margin:12px;
+    }
+}
+@media (min-width: 651px) {
+    #checkbox-menu{
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    .container menu{
+        padding: 0px 20px;
+    }
+}
+@media (max-width: 650px) {
+    .menu-button-container {
+        display: flex
+    }
+    .menu {
+        position: absolute;
+        margin-top: 32px;
+        flex-direction: column;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        left: 100%;
+        transform: translateX(100vw);
+        transition: 0.8s ease transform;
+    }
+    .menu>li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0px;
+        width: 100%;
+        color: #F2E9E4;
+        background-color: rgb(4, 4, 109);
+        border-radius: 5px;
+    }
+
+    .menu>li:not(:last-child) {
+        border-bottom: 0.5px solid #F2E9E4;
+    }
+
+    .menu li a {
+        flex: 1;
+        text-align: center;
+    }
+    main .container-menu img{
+        display: none;
+    }
+    .container-menu{
+        height: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #checkbox-menu {
+        position: absolute;
+        opacity: 0;
+    }
+
+    label{
+        cursor: pointer;
+        position: fixed;
+        right: 30px;
+        display: block;
+        height: 22px;
+        width: 30px;
+        padding: 20px 5px;
+    }
+    label:hover{
+        background: rgba(255,255,255,0.15);
+        transform: translateY(-1px);
+    }
+
+    label span{
+        position: absolute;
+        display: block;
+        height: 3px;
+        width: 70%;
+        background: white;
+        border-radius: 30px;
+        transition: 0.25s ease-in-out;
+    }
+
+    label span:nth-child(1){
+        top: 14px;
+        transform: rotate(-30deg);
+    }
+    label span:nth-child(2){
+        top: 23px;
+        transform: rotate(30deg);
+    }
+    #checkbox-menu:checked + label span:nth-child(1){
+        transform: rotate(-45deg);
+        top: 18.5px
+    }
+    #checkbox-menu:checked + label span:nth-child(2){
+        transform: rotate(45deg);
+        top: 18.5px
+    } 
+
+    nav.menu{
+        width: 100%;
+    }
+
+    #checkbox-menu:checked~nav .menu {
+        transform: translateX(-100vw);
+        transition: 0.5s ease transform;
+    } 
+}
