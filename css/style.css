@@ -112,7 +112,7 @@ main {
 /* FOOTER */
 footer{
     background-color: rgb(56, 56, 185);
-    width: 100vw;
+    width: auto;
     height: auto;
     align-items: center;
     justify-content: center;
