@@ -65,7 +65,7 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
     if (prazo >= 10)
         return rendimento * 0.1;
 
-    console.log(`Um erro aconteceu nas variáveis!`);
+    console.log(`Um erro aconteceu nas variáveis`);
 }
 
 
