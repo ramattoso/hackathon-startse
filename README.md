@@ -21,6 +21,9 @@
 
 ### Referências
 
+[ChartJs](https://www.chartjs.org/docs/latest/getting-started/)
+
+
 <a target="_blank" href="https://icons8.com/icon/20909/html-5">Html 5 icon by Icons8</a>
 <a target="_blank" href="https://icons8.com/icon/21278/css3">CSS3 icon by Icons8</a>
 <a target="_blank" href="https://icons8.com/icon/108784/javascript">JavaScript icon by Icons8</a>

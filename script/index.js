@@ -1,3 +1,19 @@
+import resultadosInvestimento from "./calculosInvestimentos";
+
+function valorFuturoDoAporteInicial(aporteInicial, taxaAoMes, prazoAoMes) {
+  return aporteInicial * (1 + taxaAoMes / 100) ** prazoAoMes;
+};
+
+const prazoAoMes = 12;
+const resultados = [];
+
+for (let i =1;i<=prazoAoMes;i++) {
+  let result = valorFuturoDoAporteInicial(10000,5,i);
+  resultados.push(result);
+}
+
+
+
 const labels = [
     'January',
     'February',
