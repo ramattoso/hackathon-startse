@@ -145,6 +145,8 @@ main {
 #about {
     min-height: 30vh;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 #team {
@@ -165,6 +167,7 @@ main {
     cursor: pointer;
     box-shadow: 5px 5px 15px -4px #000000;
     transition: all 0.3s ease 0s;
+    background-image: linear-gradient(to bottom, #0B6DD8, #00CBCA);
 }
 
 .card:hover {
@@ -212,6 +215,14 @@ main {
 #linkedin {
     margin: 15px 3px 2px 3px;
     max-height: 25px;
+}
+
+.list {
+    list-style: square;
+    list-style-position: inside;
+}
+.orderlist {
+    list-style-position: inside;
 }
 
 /* FOOTER */
