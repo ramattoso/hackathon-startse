@@ -101,13 +101,11 @@ main {
 }
 #git{
     margin: 15px 3px 2px 3px;
-    height: 20px;
-    width:  25px;
+    max-height: 25px;
 }
 #linkedin{
     margin: 15px 3px 2px 3px;
-    height: 20px;
-    width: 25px;
+    max-height: 25px;
 }
 /* FOOTER */
 footer{
