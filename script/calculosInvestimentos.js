@@ -70,10 +70,9 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 }
 
 
-
 const resultadosInvestimento = pegaValorFuturoERendimentoTotal(10000, 1000, 5, 1);
 const impostoDevido = calculaIRPrevidênciaPrivada(resultadosInvestimento.rendimentoTotal, 5);
 
 console.log(`O rendimento total do investimento foi ${resultadosInvestimento.rendimentoTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}, e o imposto devido é de ${impostoDevido.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}.`);
 
-export default {resultadosInvestimento};
+//export default {resultadosInvestimento};
