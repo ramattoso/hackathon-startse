@@ -1,55 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: 0;
 }
+
 html,
 body {
     height: 100vh;
-    font-family: "Source Sans Pro", 'Times New Roman';
+    font-family: "Inter", "Source Sans Pro", 'Times New Roman';
     font-size: 15px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background-color:#F2E9E4;
+    background-color: #F2E9E4;
 }
-header .container-menu{
+
+header .container-menu {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgb(56, 56, 185);
+    background-image: linear-gradient(to right, #0B6DD8, #00CBCA);
     height: 10vh;
 }
-header nav ul{
+
+header nav ul {
     display: flex;
 }
+
 header nav ul li {
     list-style: none;
 }
+
 header nav ul li a {
     text-decoration: none;
     color: #F2E9E4;
-    text-transform: uppercase;
     font-size: 1rem;
+    font-weight: 700;
     padding: 24px;
     transition: all 250ms linear 0s;
 }
+
 header nav ul li a:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
 }
+
 /* MAIN */
 main {
     min-height: 80vh;
     width: 70vw;
-    margin: 5vh 15vw; 
+    margin: 5vh 15vw;
     align-items: center;
     justify-content: center;
 }
-#about{
+
+#about {
     min-height: 30vh;
     margin: 20px;
 }
+
 #team {
     width: 90%;
     max-width: 1020px;
@@ -60,7 +71,8 @@ main {
     padding-bottom: 50px;
     padding-top: 50px;
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -68,18 +80,22 @@ main {
     box-shadow: 5px 5px 15px -4px #000000;
     transition: all 0.3s ease 0s;
 }
-.card:hover{
+
+.card:hover {
     transform: translateY(-7px);
 }
+
 .content {
-    margin:20px 10px;
+    margin: 20px 10px;
 }
-.card-name .card-function{
+
+.card-name .card-function {
     font-size: 14px;
     line-height: 26px;
     font-weight: 400;
     color: #9A8C98;
 }
+
 .image {
     height: 120px;
     width: 100%;
@@ -87,7 +103,8 @@ main {
     overflow: hidden;
     position: relative;
 }
-.image img{
+
+.image img {
     position: absolute;
     border-radius: 10px;
     top: 10%;
@@ -95,28 +112,32 @@ main {
     height: 100px;
     width: 100px;
 }
-.social{
+
+.social {
     display: flex;
     justify-content: center;
 }
-#git{
+
+#git {
     margin: 15px 3px 2px 3px;
     max-height: 25px;
 }
-#linkedin{
+
+#linkedin {
     margin: 15px 3px 2px 3px;
     max-height: 25px;
 }
+
 /* FOOTER */
-footer{
-    background-color: rgb(56, 56, 185);
-    width: auto;
-    height: auto;
+footer {
+    height: 4vh;
+    display: flex;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(to right, #0B6DD8, #00CBCA);
 }
-footer p{
-    display: flex;
-    justify-content: center;
+
+footer p {
+    font-weight: 600;
     color: #F2E9E4;
 }
