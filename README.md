@@ -10,19 +10,11 @@
     <img src="https://img.icons8.com/color/48/000000/git.png"/>
 </div>
 
-#
-
 ## Desafio
-
-#
 
 ## Solução
 
-#
-
 ## Projeto Finalizado
-
-#
 
 ### Referências:
 
