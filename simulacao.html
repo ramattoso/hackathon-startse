@@ -15,11 +15,13 @@
     <header>
         <div class="container-menu">
             <a href="index.html"><img src="images/Logo.svg" alt="logo"></a>
+
             <input type="checkbox" id="checkbox-menu" />
             <label class="menu-button-container" for="checkbox-menu">
                 <span></span>
                 <span></span>
             </label>
+
             <nav>
                 <ul class="menu">
                     <li><a href="index.html">Home</a></li>
@@ -32,12 +34,40 @@
         </div>
     </header>
     <main>
-        <section>
-            <h1> Calculadora de invesimento</h1>
-        </section>
-        <form action="">
+        <section id="content-simulador">
+            <div id="div-simulador">
+                <h1 id="h1-simulador">Simulador de Investimentos</h1>
+                <p id="p-simulador">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies erat
+                    ex, ac ornare ex
+                    vulputate.</p>
+            </div>
 
-        </form>
+            <form id="form-simulador" action="#">
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="para-comecar">Para começar, qual valor
+                        você gostaria de investir?</label>
+                    <input class="input-simulador" type="number" nome="para-comecar" id="para-comecar" placeholder="R$">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="por-mes">E por mês, quanto gostaria de depositar?</label>
+                    <input class="input-simulador" type="number" nome="por-mes" id="por-mes" placeholder="R$">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="tempo">Quanto tempo em meses
+                        deixaria seu dinheiro investido?</label>
+                    <input class="input-simulador" type="number" nome="tempo" id="tempo">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="porcen">Qual a porcentagem de rentabilidade a.a?</label>
+                    <input class="input-simulador" type="number" nome="porcen" id="porcen" placeholder="%">
+                </div>
+
+                <button id="button-simulador" type="submit">Simule agora!</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>&copy; Copyright 2022 -
