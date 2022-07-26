@@ -59,6 +59,8 @@ main {
 #about {
     min-height: 30vh;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 #team {
@@ -127,6 +129,14 @@ main {
 #linkedin {
     margin: 15px 3px 2px 3px;
     max-height: 25px;
+}
+
+.list {
+    list-style: square;
+    list-style-position: inside;
+}
+.orderlist {
+    list-style-position: inside;
 }
 
 /* FOOTER */
