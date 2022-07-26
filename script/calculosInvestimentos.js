@@ -1,3 +1,4 @@
+
 /*Função que calcula o Valor Futuro e Rendimento Total de determinado investimento, seja apenas com um aporte inicial, com aportes mensais, ou os dois juntos*/
 function pegaValorFuturoERendimentoTotal(aporteInicial, aportesMensais, taxaAoAno, prazoAno) {
     /*Em sites normalmente taxa e prazo é mostrado Ao Ano, e os aportes de maneira mensal. Por isso temos que deixar todos em um mesmo equivalência, nesse caso ao mês*/
@@ -73,3 +74,5 @@ const resultadosInvestimento = pegaValorFuturoERendimentoTotal(10000, 1000, 5, 1
 const impostoDevido = calculaIRPrevidênciaPrivada(resultadosInvestimento.rendimentoTotal, 5);
 
 console.log(`O rendimento total do investimento foi ${resultadosInvestimento.rendimentoTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}, e o imposto devido é de ${impostoDevido.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}.`);
+
+//export default {resultadosInvestimento};
