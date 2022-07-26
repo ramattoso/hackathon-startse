@@ -11,15 +11,15 @@ const Simulacao = db.define(
             notNull: true,
         },
         aporteInicial: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.FLOAT,
         },
         aporteMensal: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.FLOAT,
         },
         taxaAA: {
             type: DataTypes.DECIMAL,
         },
-        meses: {
+        anos: {
             type: DataTypes.INTEGER,
         },
         idUsuario: {

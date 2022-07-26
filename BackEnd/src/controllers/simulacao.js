@@ -1,22 +1,46 @@
+
 import Simulacao from '../models/index.js';
+import Usuarios from '../models/Usuario.js';
+import simulacaoValorFuturo from './aportes.js';
 
 const simulacaoController = {
     listarSimulacao: async (req,res) => {
-        const listaDeSimulacao = await Simulacao.findOne(
+        const listaDeSimulacao = await Simulacao.findAll({
+            include: Usuarios
+        }
         );
         res.json(listaDeSimulacao);
     },
     
     async cadastrarSimulacao (req,res) {
-        const { aporteInicial, aporteMensal, taxaAA, meses, idUsuario } = req.body;
+        const { aporteInicial, aporteMensal, taxaAA, anos, idUsuario } = req.body;
+        const resultAporteInicial = [];
+        const resultAporteMensal = [];
+        const resultSimulacao = [];
+        const prazoConvertidoAoMes = anos * 12;
+        const taxaAM = simulacaoValorFuturo.converteTaxaAnualParaMensal(taxaAA,prazoConvertidoAoMes);
+    
+        for (let i = 1;i<=prazoConvertidoAoMes;i++) {
+            let resultInicio = simulacaoValorFuturo.valorFuturoDoAporteInicial(aporteInicial,taxaAM,i);
+            let resultMes = simulacaoValorFuturo.valorFuturoDosAportesMensais(aporteMensal,taxaAM,i);
+            let totalValorFuturo = simulacaoValorFuturo.pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,anos);
+            resultAporteInicial.push(resultInicio);
+            resultAporteMensal.push(resultMes);
+            resultSimulacao.push(totalValorFuturo);
+        }
+        
+        console.log(resultAporteInicial,resultAporteMensal, resultSimulacao);
+
         const novaSimulacao = await Simulacao.create({
             aporteInicial,
             aporteMensal,
             taxaAA,
-            meses,
+            anos,
             idUsuario,
         });
-        res.status(201).json(novaSimulacao);
+
+        res.status(201).json({resultSimulacao,resultAporteInicial,resultAporteMensal,novaSimulacao});
+        //res.status(201).json( {novaSimulacao,resultadoArrays});
     },
 
     async deletarSimulacao (req,res) {
@@ -37,7 +61,7 @@ const simulacaoController = {
 
     async atualizaSimulacao (req,res) {
         const {id} = req.params;
-        const { aporteInicial, aporteMensal, taxaAA, meses, idUsuario } = req.body;
+        const { aporteInicial, aporteMensal, taxaAA, anos, idUsuario } = req.body;
 
         if (!id) return res.status(400).json('id não enviado.');
 
@@ -45,7 +69,7 @@ const simulacaoController = {
             aporteInicial,
             aporteMensal,
             taxaAA,
-            meses,
+            anos,
             idUsuario,
         });
 
@@ -58,7 +82,9 @@ const simulacaoController = {
         const retornaSimulacaoId  = await Simulacao.findByPk(id);
 
         res.json(retornaSimulacaoId);
-    }
+    },
+
+
 };
 
 

@@ -2,8 +2,9 @@ import Simulacao from './Simulacao.js';
 import Usuarios from './Usuario.js';
 
 
-Usuarios.belongsTo(Simulacao, {
+Simulacao.belongsTo(Usuarios, {
     foreignKey: 'idUsuario',
 });
 
-export default Usuarios;
+
+export default  Simulacao;

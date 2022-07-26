@@ -1,10 +1,8 @@
-import  Usuarios  from '../models/index.js';
-import Simulacao from '../models/Simulacao.js';
+import Usuarios from "../models/Usuario.js";
+
 const usuariosController = {
     listarUsuarios: async (req,res) => {
-        const listaDeUsuarios = await Usuarios.findAll({
-            include: Simulacao
-        });
+        const listaDeUsuarios = await Usuarios.findAll();
         res.json(listaDeUsuarios);
     },
     
