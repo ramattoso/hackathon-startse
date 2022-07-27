@@ -50,6 +50,7 @@ header nav ul {
 
 header nav ul li {
     list-style: none;
+    align-items: center;
 }
 
 header nav ul li a {
