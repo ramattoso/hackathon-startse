@@ -217,7 +217,6 @@ main {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
 }
 
 .social {
@@ -242,6 +241,11 @@ main {
 .list li {
     margin: 8px 0px;
 }
+
+.logoEmpresas {
+    width: 125px;
+}
+
 .orderlist {
     list-style-position: inside;
 }
