@@ -21,5 +21,5 @@ export default (req,res,next) => {
     console.log(resultAporteInicial,resultAporteMensal, resultSimulacao, resultadoArrays);
     //res.status(200).json({resultSimulacao,resultAporteInicial,resultAporteMensal});
     next();
-
+    
 };

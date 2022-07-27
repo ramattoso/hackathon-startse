@@ -138,6 +138,13 @@ main {
     border: none;
     height: 5vh;
     padding: 2vh;
+    font-size: large;
+    font-weight: 600;
+    color: #0BAAE2;
+}
+
+.input-simulador::placeholder {
+    color: #0BAAE2;
 }
 
 #button-simulador {

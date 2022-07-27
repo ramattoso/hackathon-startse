@@ -39,32 +39,36 @@
         <section id="content-simulador">
             <div id="div-simulador">
                 <h1 id="h1-simulador">Simulador de Investimentos</h1>
-                <p id="p-simulador">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies erat
-                    ex, ac ornare ex
-                    vulputate.</p>
+                <p id="p-simulador">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies erat ex, ac ornare ex vulputate.
+                </p>
             </div>
-
-            <form id="form-simulador" action="#">
+            <script>
+                function saveData() {
+                    var paracomecar = document.getElementById('para-comecar');
+                    console.log(paracomecar.value);
+                }
+            </script>
+            <form id="form-simulador" action="javascript:saveData()" method="GET" enctype="application/x-www-form-urlencoded">
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="para-comecar">Para começar, qual valor
                         você gostaria de investir?</label>
-                    <input class="input-simulador" type="number" nome="para-comecar" id="para-comecar" min="100" step="50" placeholder="R$">
+                    <input class="input-simulador" type="number" name="para-comecar" id="para-comecar" min="100" step="50" placeholder="R$">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="por-mes">E por mês, quanto gostaria de depositar?</label>
-                    <input class="input-simulador" type="number" nome="por-mes" id="por-mes" placeholder="R$">
+                    <input class="input-simulador" type="number" name="por-mes" id="por-mes" min="50" step="50" placeholder="R$">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="tempo">Quanto tempo em meses
                         deixaria seu dinheiro investido?</label>
-                    <input class="input-simulador" type="number" nome="tempo" id="tempo">
+                    <input class="input-simulador" type="number" name="tempo" id="tempo" min="3" step="3" value="3">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="porcen">Qual a porcentagem de rentabilidade a.a?</label>
-                    <input class="input-simulador" type="number" nome="porcen" id="porcen" placeholder="%">
+                    <input class="input-simulador" type="number" name="porcen" id="porcen" min="1" placeholder="%">
                 </div>
 
                 <div class="label-input-simulador">
@@ -77,8 +81,8 @@
 
             <div class="modal">
                 <div class="modal-content">
-                  <h1 class="modal-title">Olá, eu sou um modal!</h1>
-                  <p class="modal-text">Você pode me fechar clicando fora desta área.</p>
+                    <h1 class="modal-title">Olá, eu sou um modal!</h1>
+                    <p class="modal-text">Você pode me fechar clicando fora desta área.</p>
                 </div>
                 <button class="modalBtn">Confirmar código</button>
                 <button class="modalBtn">Reenviar código</button>
