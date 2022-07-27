@@ -2,16 +2,10 @@
 function pegaValorFuturoERendimentoTotal(aporteInicial, aportesMensais, taxaAoAno, prazoMes) {
  
     const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno, prazoMes);
-
- 
     const vFAM = valorFuturoDosAportesMensais(aportesMensais, taxaConvertidaAoMes, prazoMes);
     const vFAI = valorFuturoDoAporteInicial(aporteInicial, taxaConvertidaAoMes, prazoMes);
-
-    
     const totalValorFuturo = vFAI + vFAM;
     const rendimentoTotal = (vFAI - aporteInicial) + (vFAM - aportesMensais * prazoMes);
-
-    
     return { valorFuturoDosAportesMensais: vFAM, valorFuturoDoAporteInicial: vFAI, totalValorFuturo, rendimentoTotal };
 }
 
@@ -19,16 +13,13 @@ function valorFuturoDosAportesMensais(aportesMensais, taxaAoMes, prazoAoMes) {
     return aportesMensais * (1 + taxaAoMes / 100) * (((1 + taxaAoMes / 100) ** prazoAoMes - 1) / (taxaAoMes / 100));
 }
 
-
 function valorFuturoDoAporteInicial(aporteInicial, taxaAoMes, prazoAoMes) {
     return aporteInicial * (1 + taxaAoMes / 100) ** prazoAoMes;
 }
 
-
 function converteTaxaAnualParaMensal(taxaAnual, prazoMensal) {
     return ((1 + (taxaAnual / 100)) ** (1 / prazoMensal) - 1) * 100
 }
-
 
 function calculaIRRendaFixa(rendimento, prazo) {
     const prazoConvertidoAoDia = prazo * 360;
@@ -86,10 +77,10 @@ function getSimulator() {
     const resultImpostoRF =[];
 
 
-    for (let i = 1;i<=prazoMeses;i++) {
+    for (let i = 0;i<=prazoMeses;i++) {
         let resultInicio = valorFuturoDoAporteInicial(aporteInicial,taxaConvertidaAoMes,i);
         let resultMes = valorFuturoDosAportesMensais(aporteMensal,taxaConvertidaAoMes,i);
-        let totalValorFuturo = pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,prazoMeses);
+        let totalValorFuturo = pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,i);
         let impostoRendaFixa = calculaIRRendaFixa(totalValorFuturo.rendimentoTotal,prazoMeses);
         resultAporteInicial.push(resultInicio);
         resultAporteMensal.push(resultMes);
@@ -103,7 +94,7 @@ function getSimulator() {
 
     function exibeChart() {
 
-        //const modal = document.getElementById('modal');
+        const modal = document.getElementById('modal');
 
         const labels = [
             'January',
@@ -122,11 +113,33 @@ function getSimulator() {
           const data = {
             labels: labels,
             datasets: [{
-              label: 'My First dataset',
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
-              data: resultAporteInicial,
-            }]
+                label: 'Aporte Inicial',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: resultSimulacao,
+                },
+                {
+                label: 'Aporte Inicial',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: resultAporteInicial,
+                },
+            {
+                label: 'Aporte Mensal',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: resultAporteMensal,   
+            },{
+                label: 'Rendimentos',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: resultRendimento,  
+            },{
+                label: 'Imposto Renda Fixa',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: resultImpostoRF,
+        }]
           };
         
           const config = {
@@ -140,7 +153,7 @@ function getSimulator() {
             config
           );
 
-          
+          modal.style.display = "block";
         };
         
     exibeChart();
