@@ -248,7 +248,12 @@ main {
 .orderlist li {
     margin: 8px 0;
 }
-
+#subir{
+	position:fixed;
+	bottom: 30px;
+	right: 30px;
+    z-index: 80;
+}
 /* FOOTER */
 
 footer {
