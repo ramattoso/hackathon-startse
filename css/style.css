@@ -138,6 +138,13 @@ main {
     border: none;
     height: 5vh;
     padding: 2vh;
+    font-size: large;
+    font-weight: 600;
+    color: #0BAAE2;
+}
+
+.input-simulador::placeholder {
+    color: #0BAAE2;
 }
 
 #button-simulador {
@@ -217,7 +224,6 @@ main {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60vw;
 }
 
 .social {
@@ -242,6 +248,11 @@ main {
 .list li {
     margin: 8px 0px;
 }
+
+.logoEmpresas {
+    width: 125px;
+}
+
 .orderlist {
     list-style-position: inside;
 }

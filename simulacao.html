@@ -27,6 +27,7 @@
                     <li><a href="index.html" title="Trabalho Informal no Brasil">Home</a></li>
                     <li><a href="sobre.html" title="Sobre o Projeto do site">Sobre</a></li>
                     <li><a href="consultores.html" title="Profissionais que podem ajudar">Consultores</a></li>
+                    <li><a href="empresas.html" title="Principais Corretoras/Bancos do Brasil">Empresas</a></li>
                     <li><a href="investimentos.html" title="Exemplos de Investimentos">Investimentos</a></li>
                     <li><a href="simulacao.html" title="Simulação de Investimentos - Calculadora">Simulação</a></li>
                     <li><a href="teste-chart.html">Teste Linha</a></li>
@@ -46,23 +47,23 @@
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="para-comecar">Para começar, qual valor
                         você gostaria de investir?</label>
-                    <input class="input-simulador" type="number" name="aporteInicial" id="para-comecar" placeholder="R$">
+                    <input class="input-simulador" type="number" name="aporteInicial" id="para-comecar" min="100" step="50" placeholder="R$">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="por-mes">E por mês, quanto gostaria de depositar?</label>
-                    <input class="input-simulador" type="number" name="aporteMensal" id="por-mes" placeholder="R$">
+                    <input class="input-simulador" type="number" name="aporteMensal" id="por-mes" min="50" step="50" placeholder="R$">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="tempo">Quanto tempo em meses
                         deixaria seu dinheiro investido?</label>
-                    <input class="input-simulador" type="number" name="meses" id="tempo">
+                    <input class="input-simulador" type="number" name="prazMeses" id="tempo" min="3" step="3" value="3">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="porcen">Qual a porcentagem de rentabilidade a.a?</label>
-                    <input class="input-simulador" type="number" name="taxaAA" id="porcen" placeholder="%">
+                    <input class="input-simulador" type="number" name="taxaAA" id="porcen" min="1" placeholder="%">
                 </div>
 
                 <div class="label-input-simulador">
