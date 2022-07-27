@@ -1,6 +1,101 @@
 
+function getSimulator() {
+    var aporteInicial = document.getElementById('para-comecar').value;
+    var aporteMensal = document.getElementById('por-mes').value;
+    var taxaAA = document.getElementById('porcen').value;
+    var prazoMeses = document.getElementById('tempo').value;
+    var email = document.getElementById('email').value;
+
+    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAA,prazoMeses);
+    const resultAporteInicial = [];
+    const resultAporteMensal = [];
+    const resultSimulacao = [];
+    const resultRendimento = [];
+    const resultImpostoRF = [];
+
+
+    for (let i = 0;i<=prazoMeses;i++) {
+        
+        let resultInicio = valorFuturoDoAporteInicial(aporteInicial,taxaConvertidaAoMes,i);
+        let resultMes = valorFuturoDosAportesMensais(aporteMensal,taxaConvertidaAoMes,i);
+        let totalValorFuturo = pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,i);
+        let impostoRendaFixa = calculaIRRendaFixa(totalValorFuturo.rendimentoTotal,prazoMeses);
+        
+        resultAporteInicial.push(resultInicio);
+        resultAporteMensal.push(resultMes);
+        resultSimulacao.push(totalValorFuturo.totalValorFuturo);
+        resultRendimento.push(totalValorFuturo.rendimentoTotal);
+        resultImpostoRF.push(impostoRendaFixa);
+        
+    }
+    
+    console.log(resultAporteInicial,resultAporteMensal, resultSimulacao, resultRendimento, resultImpostoRF);
+    const modal = document.getElementById('modal');
+
+    const labels = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro'
+      ];
+    
+      const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Valor Futuro Total do Investimento',
+            backgroundColor: 'rgb(92, 240, 160)',
+            borderColor: 'rgb(92, 240, 160)',
+            data: resultSimulacao,
+        },{
+            label: 'Aporte Inicial',
+            backgroundColor: 'rgb(240, 120, 80)',
+            borderColor: 'rgb(240, 120, 80)',
+            data: resultAporteInicial,
+        },{
+            label: 'Aporte Mensal',
+            backgroundColor: 'rgb(155, 129, 132)',
+            borderColor: 'rgb(155, 129, 132)',
+            data: resultAporteMensal,   
+        },{
+            label: 'Rendimentos',
+            backgroundColor: 'rgb(155, 199, 132)',
+            borderColor: 'rgb(155, 199, 132)',
+            data: resultRendimento,  
+        },{
+            label: 'Imposto Renda Fixa',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: resultImpostoRF,
+        }]
+    };
+    
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+    
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    modal.style.display = "block";
+    
+    //exibeChart();
+    
+}
+
+
 function pegaValorFuturoERendimentoTotal(aporteInicial, aportesMensais, taxaAoAno, prazoMes) {
- 
     const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno, prazoMes);
     const vFAM = valorFuturoDosAportesMensais(aportesMensais, taxaConvertidaAoMes, prazoMes);
     const vFAI = valorFuturoDoAporteInicial(aporteInicial, taxaConvertidaAoMes, prazoMes);
@@ -53,109 +148,3 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     console.log(`Um erro aconteceu nas variáveis`);
 }
-
-function getSimulator() {
-    var aporteInicial = document.getElementById('para-comecar').value;
-    var aporteMensal = document.getElementById('por-mes').value;
-    var taxaAA = document.getElementById('porcen').value;
-    var prazoMeses = document.getElementById('tempo').value;
-    var email = document.getElementById('email').value;
-
-    const simulacao = {
-        aporteInicial,
-        aporteMensal,
-        taxaAA,
-        prazoMeses,
-        email
-    };
-    
-    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAA,prazoMeses);
-    const resultAporteInicial =[];
-    const resultAporteMensal =[];
-    const resultSimulacao =[];
-    const resultRendimento =[];
-    const resultImpostoRF =[];
-
-
-    for (let i = 0;i<=prazoMeses;i++) {
-        let resultInicio = valorFuturoDoAporteInicial(aporteInicial,taxaConvertidaAoMes,i);
-        let resultMes = valorFuturoDosAportesMensais(aporteMensal,taxaConvertidaAoMes,i);
-        let totalValorFuturo = pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,i);
-        let impostoRendaFixa = calculaIRRendaFixa(totalValorFuturo.rendimentoTotal,prazoMeses);
-        resultAporteInicial.push(resultInicio);
-        resultAporteMensal.push(resultMes);
-        resultSimulacao.push(totalValorFuturo.totalValorFuturo);
-        resultRendimento.push(totalValorFuturo.rendimentoTotal);
-        resultImpostoRF.push(impostoRendaFixa);
-        
-    }
-    
-    console.log(resultAporteInicial,resultAporteMensal, resultSimulacao, resultRendimento, resultImpostoRF);
-
-    function exibeChart() {
-
-        const modal = document.getElementById('modal');
-
-        const labels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'Julho',
-            'Agosto',
-            'Setembro',
-            'Outubro',
-            'Dezembro'
-          ];
-        
-          const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Aporte Inicial',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: resultSimulacao,
-                },
-                {
-                label: 'Aporte Inicial',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: resultAporteInicial,
-                },
-            {
-                label: 'Aporte Mensal',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: resultAporteMensal,   
-            },{
-                label: 'Rendimentos',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: resultRendimento,  
-            },{
-                label: 'Imposto Renda Fixa',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: resultImpostoRF,
-        }]
-          };
-        
-          const config = {
-            type: 'line',
-            data: data,
-            options: {}
-          };
-        
-          const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-          );
-
-          modal.style.display = "block";
-        };
-        
-    exibeChart();
-    
-};
