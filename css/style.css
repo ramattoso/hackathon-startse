@@ -14,6 +14,7 @@ body {
     height: 100vh;
     font-family: "Inter", "Source Sans Pro", 'Times New Roman';
     font-size: 100%;
+    line-height: 1.5rem;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background-color: white;
@@ -21,18 +22,30 @@ body {
 
 h1 {
     color: #00CBCA;
+    text-align: left; 
+    margin: 2.5rem auto;
+    font-size: 1.5rem;
 }
 
 h3 {
     font-weight: 600;
     color: #0B6DD8;
+    text-align: left;
+    margin: 1rem auto;
 }
-
+p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
 /* HEADER */
 
 header {
     background-image: linear-gradient(to right, #0B6DD8, #00CBCA);
-    height: 10vh;
+    height: 12vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 100;
 }
 
 header .container-menu {
@@ -71,7 +84,7 @@ header nav ul li a:hover {
 main {
     min-height: 80vh;
     width: 70vw;
-    margin: 5vh 12vw;
+    margin: 20vh 12vw;
 }
 
 #content-simulador {
@@ -143,10 +156,7 @@ main {
     cursor: pointer;
 }
 
-
 #about {
-    min-height: 30vh;
-    margin: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -203,6 +213,12 @@ main {
     height: 100px;
     width: 100px;
 }
+.imgcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
 
 .social {
     display: flex;
@@ -223,8 +239,14 @@ main {
     list-style: square;
     list-style-position: inside;
 }
+.list li {
+    margin: 8px 0px;
+}
 .orderlist {
     list-style-position: inside;
+}
+.orderlist li {
+    margin: 8px 0;
 }
 
 /* FOOTER */
