@@ -148,3 +148,10 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     console.log(`Um erro aconteceu nas variáveis`);
 }
+
+window.onclick = function(event) {
+	const modal = document.querySelector('.modal');
+  if (event.target == modal ) {
+    	modal.style.display = 'none';
+  }
+}
