@@ -16,7 +16,7 @@ body {
     font-size: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background-color: #F2E9E4;
+    background-color: white;
 }
 
 h1 {
@@ -41,7 +41,7 @@ header .container-menu {
     align-items: center;
     justify-content: space-around;
     padding: 2vh;
-    margin-inline: 10vw;
+    margin-inline: 12vw;
 }
 
 header nav ul {
@@ -54,7 +54,7 @@ header nav ul li {
 
 header nav ul li a {
     text-decoration: none;
-    color: #F2E9E4;
+    color: white;
     font-size: 1rem;
     font-weight: 700;
     padding: 25px;
@@ -78,18 +78,19 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: 20px;
+    margin-top: 75px;
 }
 
 #div-simulador {
     display: flex;
     flex-direction: column;
-    width: 75vh;
+    width: 65vh;
+    padding: 25px;
     gap: 20px;
 }
 
 #h1-simulador {
-    font-size: 8vh;
+    font-size: 7vh;
 }
 
 #p-simulador {
@@ -103,7 +104,7 @@ main {
     background: linear-gradient(141.06deg, #0B6DD8 0%, #00CBCA 110.62%);
     border-radius: 25px;
     padding: 30px;
-    color: #F2E9E4;
+    color: white;
     height: 75vh;
     width: 50vh;
 }
@@ -129,7 +130,7 @@ main {
     border-radius: 25px;
     background-color: #00CBCA;
     border: none;
-    color: #F2E9E4;
+    color:white;
     padding: 15px;
     font-weight: 700;
     font-size: x-large;
@@ -182,7 +183,7 @@ main {
     font-size: 14px;
     line-height: 26px;
     font-weight: 400;
-    color: #9A8C98;
+    color: white;
 }
 
 .image {
@@ -238,5 +239,5 @@ footer {
 footer p {
     font-weight: 600;
     font-size: small;
-    color: #F2E9E4;
+    color: white;
 }
