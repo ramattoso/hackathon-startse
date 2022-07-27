@@ -41,46 +41,47 @@
                 <p id="p-simulador">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies erat ex, ac ornare ex vulputate.
                 </p>
             </div>
-            <script>
-                function saveData() {
-                    var paracomecar = document.getElementById('para-comecar');
-                    console.log(paracomecar.value);
-                }
-            </script>
-            <form id="form-simulador" action="javascript:saveData()" method="GET" enctype="application/x-www-form-urlencoded">
+
+            <form id="form-simulador">
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="para-comecar">Para começar, qual valor
                         você gostaria de investir?</label>
-                    <input class="input-simulador" type="number" name="para-comecar" id="para-comecar" placeholder="R$">
+                    <input class="input-simulador" type="number" name="aporteInicial" id="para-comecar" placeholder="R$">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="por-mes">E por mês, quanto gostaria de depositar?</label>
-                    <input class="input-simulador" type="number" name="por-mes" id="por-mes" placeholder="R$">
+                    <input class="input-simulador" type="number" name="aporteMensal" id="por-mes" placeholder="R$">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="tempo">Quanto tempo em meses
                         deixaria seu dinheiro investido?</label>
-                    <input class="input-simulador" type="number" name="tempo" id="tempo">
+                    <input class="input-simulador" type="number" name="meses" id="tempo">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="porcen">Qual a porcentagem de rentabilidade a.a?</label>
-                    <input class="input-simulador" type="number" name="porcen" id="porcen" placeholder="%">
+                    <input class="input-simulador" type="number" name="taxaAA" id="porcen" placeholder="%">
                 </div>
 
                 <div class="label-input-simulador">
                     <label class="label-simulador" for="email">Qual seu e-mail? (enviar gráfico da simulação)</label>
-                    <input class="input-simulador" type="email" nome="email" id="email" placeholder="@">
+                    <input class="input-simulador" type="email" name="email" id="email" placeholder="@">
                 </div>
 
-                <button id="button-simulador" type="submit">Simule agora!</button>
+                <button id="button-simulador" onClick="getSimulator()">Simule agora!</button>
             </form>
 
-            <div class="modal">
+            <div>
+                <h1>Teste Chart.Js</h1>
+                <canvas id="myChart"> Teste gráfico de linha </canvas>
+            </div>
+
+            <div class="modal" id="modal">
                 <div class="modal-content">
                     <h1 class="modal-title">Olá, eu sou um modal!</h1>
+
                     <p class="modal-text">Você pode me fechar clicando fora desta área.</p>
                 </div>
                 <button class="modalBtn">Confirmar código</button>
@@ -98,6 +99,7 @@
     <div id="voltarTopo">
         <a href="#" id="subir"><img height="35px" width="35px" src="./images/topo.png"></a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="script/index.js"></script>
 </body>
 

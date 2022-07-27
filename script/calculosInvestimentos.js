@@ -1,19 +1,20 @@
 
 /*Função que calcula o Valor Futuro e Rendimento Total de determinado investimento, seja apenas com um aporte inicial, com aportes mensais, ou os dois juntos*/
-function pegaValorFuturoERendimentoTotal(aporteInicial, aportesMensais, taxaAoAno, prazoAno) {
+function pegaValorFuturoERendimentoTotal(aporteInicial, aportesMensais, taxaAoAno, prazoMes) {
     /*Em sites normalmente taxa e prazo é mostrado Ao Ano, e os aportes de maneira mensal. Por isso temos que deixar todos em um mesmo equivalência, nesse caso ao mês*/
-    const prazoConvertidoAoMes = prazoAno * 12;
-    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno, prazoConvertidoAoMes);
+    //const prazoConvertidoAoMes = prazoAno * 12;
+    //const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno, prazoConvertidoAoMes);
+    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno, prazoMes);
 
-    console.log(aportesMensais);
+    //console.log(aportesMensais);
 
     /*O calculo dos aportes mensais e do aporte inicial é feito de maneira separada*/
-    const vFAM = valorFuturoDosAportesMensais(aportesMensais, taxaConvertidaAoMes, prazoConvertidoAoMes);
-    const vFAI = valorFuturoDoAporteInicial(aporteInicial, taxaConvertidaAoMes, prazoConvertidoAoMes);
+    const vFAM = valorFuturoDosAportesMensais(aportesMensais, taxaConvertidaAoMes, prazoMes);
+    const vFAI = valorFuturoDoAporteInicial(aporteInicial, taxaConvertidaAoMes, prazoMes);
 
     /*Ao final temos tanto o valor total do investimento, somando o rendimento tanto do aporte mensal quanto inicial, e o total de rendimentos dos dois*/
     const totalValorFuturo = vFAI + vFAM;
-    const rendimentoTotal = (vFAI - aporteInicial) + (vFAM - aportesMensais * prazoConvertidoAoMes);
+    const rendimentoTotal = (vFAI - aporteInicial) + (vFAM - aportesMensais * prazoMes);
 
     /*A função retorna um objeto com os quatro valores como resultados do investimento, que podem ser usados de maneira individual*/
     return { valorFuturoDosAportesMensais: vFAM, valorFuturoDoAporteInicial: vFAI, totalValorFuturo, rendimentoTotal };
@@ -69,10 +70,19 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
     console.log(`Um erro aconteceu nas variáveis`);
 }
 
+const simulacaoValorFuturo = {
+    pegaValorFuturoERendimentoTotal,
+    calculaIRPrevidênciaPrivada, 
+    valorFuturoDosAportesMensais, 
+    valorFuturoDoAporteInicial, 
+    converteTaxaAnualParaMensal
+   };
+  
 
-const resultadosInvestimento = pegaValorFuturoERendimentoTotal(10000, 1000, 5, 1);
-const impostoDevido = calculaIRPrevidênciaPrivada(resultadosInvestimento.rendimentoTotal, 5);
+export default simulacaoValorFuturo;
 
-console.log(`O rendimento total do investimento foi ${resultadosInvestimento.rendimentoTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}, e o imposto devido é de ${impostoDevido.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}.`);
+// const resultadosInvestimento = pegaValorFuturoERendimentoTotal(10000, 1000, 5, 1);
+// const impostoDevido = calculaIRPrevidênciaPrivada(resultadosInvestimento.rendimentoTotal, 5);
 
-//export default {resultadosInvestimento};
+// console.log(`O rendimento total do investimento foi ${resultadosInvestimento.rendimentoTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}, e o imposto devido é de ${impostoDevido.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}.`);
+

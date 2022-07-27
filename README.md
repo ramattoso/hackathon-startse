@@ -69,3 +69,11 @@ O objetivo do projeto não é indicar nenhum tipo de produto ou empresa, mas sim
 - [ ] documentar api
 - [ ] componentizar
 - [ ] autenticação
+
+ ``<script>
+  javascript:saveData()
+                function saveData() {
+                    var paracomecar = document.getElementById('para-comecar');
+                    console.log(paracomecar.value);
+                }
+  </script>``
