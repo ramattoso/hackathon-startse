@@ -216,8 +216,7 @@ main {
 .imgcenter {
     display: block;
     margin-left: auto;
-    margin-right: auto;
-    width: 60vw;
+    margin-right: auto;    
 }
 
 .social {

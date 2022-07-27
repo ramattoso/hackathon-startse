@@ -27,6 +27,10 @@
     input {
         margin: 12px;
     }
+
+    .imgcenter {
+        width: 74vw;
+    }
 }
 
 @media (min-width: 750px) {
