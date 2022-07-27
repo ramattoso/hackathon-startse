@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título do site</title>
+    <title>InfoInvest - Simulação</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
@@ -15,29 +15,78 @@
     <header>
         <div class="container-menu">
             <a href="index.html"><img src="images/Logo.svg" alt="logo"></a>
+
             <input type="checkbox" id="checkbox-menu" />
             <label class="menu-button-container" for="checkbox-menu">
                 <span></span>
                 <span></span>
             </label>
+
             <nav>
                 <ul class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="consultores.html">Consultores</a></li>
-                    <li><a href="investimentos.html">Tipos de Investimento</a></li>
-                    <li><a href="simulacao.html">Simulação de Investimentos</a></li>
+                    <li><a href="index.html" title="Trabalho Informal no Brasil">Home</a></li>
+                    <li><a href="sobre.html" title="Sobre o Projeto do site">Sobre</a></li>
+                    <li><a href="consultores.html" title="Profissionais que podem ajudar">Consultores</a></li>
+                    <li><a href="empresas.html" title="Principais Corretoras/Bancos do Brasil">Empresas</a></li>
+                    <li><a href="investimentos.html" title="Exemplos de Investimentos">Investimentos</a></li>
+                    <li><a href="simulacao.html" title="Simulação de Investimentos - Calculadora">Simulação</a></li>
+                    <li><a href="teste-chart.html">Teste Linha</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <section>
-            <h1> Calculadora de invesimento</h1>
-        </section>
-        <form action="">
+        <section id="content-simulador">
+            <div id="div-simulador">
+                <h1 id="h1-simulador">Simulador de Investimentos</h1>
+                <p id="p-simulador">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies erat ex, ac ornare ex vulputate.
+                </p>
+            </div>
 
-        </form>
+            <form id="form-simulador" action="" method="GET" enctype="application/x-www-form-urlencoded">
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="para-comecar">Para começar, qual valor
+                        você gostaria de investir?</label>
+                    <input class="input-simulador" type="number" name="aporteInicial" id="para-comecar" min="100" step="50" placeholder="R$">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="por-mes">E por mês, quanto gostaria de depositar?</label>
+                    <input class="input-simulador" type="number" name="aporteMensal" id="por-mes" min="50" step="50" placeholder="R$">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="tempo">Quanto tempo em meses
+                        deixaria seu dinheiro investido?</label>
+                    <input class="input-simulador" type="number" name="prazoMeses" id="tempo" min="3" step="3" value="3">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="porcen">Qual a porcentagem de rentabilidade a.a?</label>
+                    <input class="input-simulador" type="number" name="taxaAA" id="porcen" min="1" placeholder="%">
+                </div>
+
+                <div class="label-input-simulador">
+                    <label class="label-simulador" for="email">Qual seu e-mail? (enviar gráfico da simulação)</label>
+                    <input class="input-simulador" type="email" name="email" id="email" placeholder="@">
+                </div>
+
+                <button id="button-simulador" onClick="getSimulator()">Simule agora!</button>
+            </form>
+
+
+            <div class="modal" id="modal">
+                <div class="modal-content">
+                    <div>
+                        <h1>Resultado da Simulação</h1>
+                        <canvas id="myChart">Teste Canvas</canvas>
+                    </div>
+                    <p class="modal-text">Você pode me fechar clicando fora desta área.</p>
+                </div>
+                <button class="modalBtn">Confirmar código</button>
+                <button class="modalBtn">Reenviar código</button>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; Copyright 2022 -
@@ -46,6 +95,10 @@
             </script> Todos os direitos reservados - InfoInve$t
         </p>
     </footer>
+    <div id="voltarTopo">
+        <a href="#" id="subir"><img height="35px" width="35px" src="./images/topo.png"></a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="script/index.js"></script>
 </body>
 
