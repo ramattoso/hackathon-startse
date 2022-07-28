@@ -111,8 +111,8 @@ main {
 
 .h1-simulador {
     font-size: 7vh;
-    line-height: 4.5rem;
-    margin: 20px auto;
+    line-height: 6vh;
+    /* margin: 20px auto; */
 }
 
 #p-simulador {
