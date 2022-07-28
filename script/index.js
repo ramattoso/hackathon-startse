@@ -1,3 +1,4 @@
+var chartExist;
 
 function getSimulator() {
     var aporteInicial = document.getElementById('para-comecar').value;
@@ -6,7 +7,7 @@ function getSimulator() {
     var prazoMeses = document.getElementById('tempo').value;
     var email = document.getElementById('email').value;
 
-    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAA,prazoMeses);
+    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAA); //,prazoMeses);
     const resultAporteInicial = [];
     const resultAporteMensal = [];
     const resultSimulacao = [];
@@ -31,7 +32,19 @@ function getSimulator() {
     
     console.log(resultAporteInicial,resultAporteMensal, resultSimulacao, resultRendimento, resultImpostoRF);
     const modal = document.getElementById('modal');
+    
+    function labelPrazo(prazoMeses) {
+        prazo = [];
+        for (i = 0; i <= prazoMeses; i++) {
+            prazo.push(i);
+        }
+        return prazo;
+    }
 
+    const labels = labelPrazo(prazoMeses);
+
+
+    /*
     const labels = [
         'Janeiro',
         'Fevereiro',
@@ -46,7 +59,7 @@ function getSimulator() {
         'Novembro',
         'Dezembro'
       ];
-    
+    */
       const data = {
         labels: labels,
         datasets: [{
@@ -88,6 +101,8 @@ function getSimulator() {
         config
     );
 
+    chartExist = Chart.getChart("myChart");
+
     modal.style.display = "block";
     
     //exibeChart();
@@ -112,8 +127,8 @@ function valorFuturoDoAporteInicial(aporteInicial, taxaAoMes, prazoAoMes) {
     return aporteInicial * (1 + taxaAoMes / 100) ** prazoAoMes;
 }
 
-function converteTaxaAnualParaMensal(taxaAnual, prazoMensal) {
-    return ((1 + (taxaAnual / 100)) ** (1 / prazoMensal) - 1) * 100
+function converteTaxaAnualParaMensal(taxaAnual) { //, prazoMensal) {
+    return ((1 + (taxaAnual / 100)) ** (1 / 12) - 1) * 100
 }
 
 function calculaIRRendaFixa(rendimento, prazo) {
@@ -148,12 +163,10 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     console.log(`Um erro aconteceu nas variáveis`);
 }
-
 window.onclick = function(event) {
 	const modal = document.querySelector('.modal');
     if (event.target == modal ) {
     	modal.style.display = 'none';
-        var chartExist = Chart.getChart("myChart"); // <canvas> id
         if (chartExist != undefined) {
             chartExist.destroy();
         }

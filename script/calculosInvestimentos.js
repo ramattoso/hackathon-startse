@@ -35,7 +35,7 @@ function converteTaxaAnualParaMensal(taxaAnual, prazoMensal) {
     return ((1 + (taxaAnual / 100)) ** (1 / prazoMensal) - 1) * 100
 }
 
-/*Função calcula o IR de investimentos de Renda Fixa, passando o rendimento e o prazo que ficou investido*/
+/*Função calcula o IR de investimentos de Renda Fixa, passando o rendimento e o prazo que ficou investido
 function calculaIRRendaFixa(rendimento, prazo) {
     const prazoConvertidoAoDia = prazo * 360;
 
@@ -50,8 +50,8 @@ function calculaIRRendaFixa(rendimento, prazo) {
 
     console.log(`Um erro aconteceu nas variáveis`);
 }
-
-/*Função calcula o IR Regressivo de investimentos na Previdência Privada, passando o rendimento e o prazo que ficou investido*/
+*/
+/*Função calcula o IR Regressivo de investimentos na Previdência Privada, passando o rendimento e o prazo que ficou investido
 function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     if (prazo < 2)
@@ -69,7 +69,7 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     console.log(`Um erro aconteceu nas variáveis`);
 }
-
+*/
 const simulacaoValorFuturo = {
     pegaValorFuturoERendimentoTotal,
     calculaIRPrevidênciaPrivada, 
