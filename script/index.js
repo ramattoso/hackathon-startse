@@ -14,6 +14,12 @@ function getSimulator() {
     const resultRendimento = [];
     const resultImpostoRF = [];
 
+//    let acumResultAporteInicial = 0;
+    let acumResultAporteMensal = 0;
+    let acumResultSimulacao = 0;
+    let acumResultRendimento = 0;
+    let acumResultImpostoRF = 0;
+    let modalHTM;
 
     for (let i = 0;i<=prazoMeses;i++) {
         
@@ -28,8 +34,55 @@ function getSimulator() {
         resultRendimento.push(totalValorFuturo.rendimentoTotal);
         resultImpostoRF.push(impostoRendaFixa);
         
+//acumResultAporteInicial = 0;
+        acumResultAporteMensal += Math.floor(resultMes);
+        acumResultSimulacao += Math.floor(totalValorFuturo.totalValorFuturo);
+        acumResultRendimento += Math.floor(totalValorFuturo.rendimentoTotal);
+        acumResultImpostoRF += Math.floor(impostoRendaFixa);
+
     }
     
+    acumResultAporteMensal += acumResultAporteMensal;
+    acumResultSimulacao += acumResultSimulacao;
+    acumResultRendimento += acumResultRendimento;
+    acumResultImpostoRF += acumResultImpostoRF;
+
+    console.log(acumResultAporteMensal);
+    console.log(acumResultSimulacao);
+    console.log(acumResultRendimento);
+    console.log(acumResultImpostoRF);
+
+    modalHTM = (`
+    <br>
+    <h3>Total Aculumado</h3>
+    <br>
+    <p class = "modal-msg">Periodo de captação &emsp; ${prazoMeses} meses</p>
+    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${acumResultSimulacao} </p>
+    <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(aporteInicial)}</p>
+    <p class = "modal-msg">Aporte Mensal &emsp; ${acumResultAporteMensal}</p>
+    <p class = "modal-msg">Rendimentos &emsp;${acumResultRendimento}</p>
+    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${acumResultImpostoRF} </p>
+    `);
+
+    console.log(modalHTM);
+/*    document.querySelector('modal-msg').innerHTML(modalHTM);
+    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${acumResultSimulacao} </p>
+    <p class = "modal-msg"> ${acumResultSimulacao} </p>
+    <p class = "modal-msg">Aporte Inicial &emsp; ${aporteInicial}</p>
+    <p class = "modal-msg"> ${aporteInicial} </p>
+    <p class = "modal-msg">Aporte Mensal &emsp; ${acumResultAporteMensal}</p>
+    <p class = "modal-msg"> ${acumResultAporteMensal} </p>
+    <p class = "modal-msg">Rendimentos &emsp;${acumResultRendimento}</p>
+    <p class = "modal-msg"> ${acumResultRendimento} </p>
+    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${acumResultImpostoRF} </p>
+    <p class = "modal-msg"> ${acumResultImpostoRF} </p>
+    <footer id="modal-footer">
+      <p id = "modal-msg">para sair - click fora desta janela</p>
+    </footer>  
+*/
+    const p = document.getElementById('modal-msg');
+    p.innerHTML = modalHTM;
+
     console.log(resultAporteInicial,resultAporteMensal, resultSimulacao, resultRendimento, resultImpostoRF);
     const modal = document.getElementById('modal');
     

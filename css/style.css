@@ -297,6 +297,22 @@ main {
     position: relative;
 }
 
+.modal-msg {
+    /*
+    display: flex;
+    justify-content: center;
+    font-size: 0.5rem;
+    */
+    color: #0B6DD8;
+}
+
+.modal-text {
+    display: flex;
+    justify-content: center;
+    font-size: 0.75rem;    
+    color: #0B6DD8;
+}
+
 /* FOOTER */
 
 footer {
