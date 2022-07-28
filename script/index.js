@@ -1,5 +1,41 @@
 var chartExist;
 
+function valida(){
+
+    if(document.getElementById('para-comecar').value < 0){
+        alert("Valor Inválido");
+        document.getElementById('para-comecar').focus();
+        return false;
+    }
+        
+    if(document.getElementById('por-mes').value < 0){
+        alert("Valor Inválido");
+        document.getElementById('por-mes').focus();
+        return false;
+    }
+
+    if(document.getElementById('tempo').value < 1){
+        alert("Valor Inválido");
+        document.getElementById('tempo').focus();
+        return false;
+    }
+
+    if(document.getElementById('porcen').value < 0){
+        alert("Valor Inválido - dese ser maior que 0");
+        document.getElementById('porcen').focus();
+        return false;
+    }
+
+    var vm=document.getElementById('email').value;
+    if(vm.search("@")==-1){
+        
+        alert("Digite um e-mail válido");
+        document.getElementById('email').focus();
+        return false;
+    }
+    getSimulator();
+}
+
 function getSimulator() {
     var aporteInicial = document.getElementById('para-comecar').value;
     var aporteMensal = document.getElementById('por-mes').value;
@@ -14,19 +50,20 @@ function getSimulator() {
     const resultRendimento = [];
     const resultImpostoRF = [];
 
-//    let acumResultAporteInicial = 0;
-    let acumResultAporteMensal = 0;
-    let acumResultSimulacao = 0;
-    let acumResultRendimento = 0;
-    let acumResultImpostoRF = 0;
     let modalHTM;
+    let prazoMesesResult;
+
+    let resultInicio;
+    let resultMes;
+    let totalValorFuturo;
+    let impostoRendaFixa;
 
     for (let i = 0;i<=prazoMeses;i++) {
-        
-        let resultInicio = valorFuturoDoAporteInicial(aporteInicial,taxaConvertidaAoMes,i);
-        let resultMes = valorFuturoDosAportesMensais(aporteMensal,taxaConvertidaAoMes,i);
-        let totalValorFuturo = pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,i);
-        let impostoRendaFixa = calculaIRRendaFixa(totalValorFuturo.rendimentoTotal,prazoMeses);
+
+        resultInicio = valorFuturoDoAporteInicial(aporteInicial,taxaConvertidaAoMes,i);
+        resultMes = valorFuturoDosAportesMensais(aporteMensal,taxaConvertidaAoMes,i);
+        totalValorFuturo = pegaValorFuturoERendimentoTotal(aporteInicial,aporteMensal,taxaAA,i);
+        impostoRendaFixa = calculaIRRendaFixa(totalValorFuturo.rendimentoTotal,prazoMeses);
         
         resultAporteInicial.push(resultInicio);
         resultAporteMensal.push(resultMes);
@@ -34,56 +71,48 @@ function getSimulator() {
         resultRendimento.push(totalValorFuturo.rendimentoTotal);
         resultImpostoRF.push(impostoRendaFixa);
         
-//acumResultAporteInicial = 0;
-        acumResultAporteMensal += Math.floor(resultMes);
-        acumResultSimulacao += Math.floor(totalValorFuturo.totalValorFuturo);
-        acumResultRendimento += Math.floor(totalValorFuturo.rendimentoTotal);
-        acumResultImpostoRF += Math.floor(impostoRendaFixa);
-
     }
-    
-    acumResultAporteMensal += acumResultAporteMensal;
-    acumResultSimulacao += acumResultSimulacao;
-    acumResultRendimento += acumResultRendimento;
-    acumResultImpostoRF += acumResultImpostoRF;
 
-    console.log(acumResultAporteMensal);
-    console.log(acumResultSimulacao);
-    console.log(acumResultRendimento);
-    console.log(acumResultImpostoRF);
+    if (isNaN(resultInicio)) {
+        resultInicio = 0
+    }
+
+    if (isNaN(resultMes)) {
+        resultMes = 0
+    }
+
+    if (isNaN(totalValorFuturo.totalValorFuturo)) {
+        totalValorFuturo.totalValorFuturo = 0
+    }
+
+    if (isNaN(totalValorFuturo.rendimentoTotal)) {
+        totalValorFuturo.rendimentoTotal = 0
+    }
+
+    if (isNaN(impostoRendaFixa)) {
+        impostoRendaFixa = 0
+    }
+
+    if (prazoMeses < 2) {
+        prazoMesesResult = (prazoMeses+ ' mês');
+    } else {
+        prazoMesesResult = (prazoMeses+ ' meses');
+    }
 
     modalHTM = (`
     <br>
     <h3>Total Aculumado</h3>
-    <br>
-    <p class = "modal-msg">Periodo de Captação &emsp; ${prazoMeses} meses</p>
-    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${acumResultSimulacao} </p>
+    <p class = "modal-msg">Periodo de Captação &emsp; ${prazoMesesResult}</p>
+    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo)} </p>
     <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(aporteInicial)}</p>
-    <p class = "modal-msg">Aporte Mensal &emsp; ${acumResultAporteMensal}</p>
-    <p class = "modal-msg">Rendimentos &emsp;${acumResultRendimento}</p>
-    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${acumResultImpostoRF} </p>
+    <p class = "modal-msg">Aporte Mensal &emsp; ${Math.floor(resultMes)}</p>
+    <p class = "modal-msg">Rendimentos &emsp;${Math.floor(totalValorFuturo.rendimentoTotal)}</p>
+    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${Math.floor(impostoRendaFixa)} </p>
     `);
 
-    console.log(modalHTM);
-/*    document.querySelector('modal-msg').innerHTML(modalHTM);
-    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${acumResultSimulacao} </p>
-    <p class = "modal-msg"> ${acumResultSimulacao} </p>
-    <p class = "modal-msg">Aporte Inicial &emsp; ${aporteInicial}</p>
-    <p class = "modal-msg"> ${aporteInicial} </p>
-    <p class = "modal-msg">Aporte Mensal &emsp; ${acumResultAporteMensal}</p>
-    <p class = "modal-msg"> ${acumResultAporteMensal} </p>
-    <p class = "modal-msg">Rendimentos &emsp;${acumResultRendimento}</p>
-    <p class = "modal-msg"> ${acumResultRendimento} </p>
-    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${acumResultImpostoRF} </p>
-    <p class = "modal-msg"> ${acumResultImpostoRF} </p>
-    <footer id="modal-footer">
-      <p id = "modal-msg">para sair - click fora desta janela</p>
-    </footer>  
-*/
     const p = document.getElementById('modal-msg');
     p.innerHTML = modalHTM;
 
-    console.log(resultAporteInicial,resultAporteMensal, resultSimulacao, resultRendimento, resultImpostoRF);
     const modal = document.getElementById('modal');
     
     function labelPrazo(prazoMeses) {
@@ -96,23 +125,6 @@ function getSimulator() {
 
     const labels = labelPrazo(prazoMeses);
 
-
-    /*
-    const labels = [
-        'Janeiro',
-        'Fevereiro',
-        'Março',
-        'Abril',
-        'Maio',
-        'Junho',
-        'Julho',
-        'Agosto',
-        'Setembro',
-        'Outubro',
-        'Novembro',
-        'Dezembro'
-      ];
-    */
       const data = {
         labels: labels,
         datasets: [{
@@ -157,14 +169,10 @@ function getSimulator() {
     chartExist = Chart.getChart("myChart");
 
     modal.style.display = "block";
-    
-    //exibeChart();
-    
 }
 
-
 function pegaValorFuturoERendimentoTotal(aporteInicial, aportesMensais, taxaAoAno, prazoMes) {
-    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno, prazoMes);
+    const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAoAno);
     const vFAM = valorFuturoDosAportesMensais(aportesMensais, taxaConvertidaAoMes, prazoMes);
     const vFAI = valorFuturoDoAporteInicial(aporteInicial, taxaConvertidaAoMes, prazoMes);
     const totalValorFuturo = vFAI + vFAM;
@@ -181,7 +189,7 @@ function valorFuturoDoAporteInicial(aporteInicial, taxaAoMes, prazoAoMes) {
 }
 
 function converteTaxaAnualParaMensal(taxaAnual) { //, prazoMensal) {
-    return ((1 + (taxaAnual / 100)) ** (1 / 12) - 1) * 100
+    return (((1 + (taxaAnual / 100)) ** (1 / 12)) - 1) * 100
 }
 
 function calculaIRRendaFixa(rendimento, prazo) {
