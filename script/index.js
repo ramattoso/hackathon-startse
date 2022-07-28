@@ -207,26 +207,6 @@ function calculaIRRendaFixa(rendimento, prazo) {
     console.log(`Um erro aconteceu nas variáveis`);
 }
 
-/*
-function calculaIRPrevidênciaPrivada(rendimento, prazo) {
-
-    if (prazo < 2)
-        return rendimento * 0.35;
-    if (prazo >= 2 && prazo < 4)
-        return rendimento * 0.3;
-    if (prazo >= 4 && prazo < 6)
-        return rendimento * 0.25;
-    if (prazo >= 6 && prazo < 8)
-        return rendimento * 0.2;
-    if (prazo >= 8 && prazo < 10)
-        return rendimento * 0.15;
-    if (prazo >= 10)
-        return rendimento * 0.1;
-
-    console.log(`Um erro aconteceu nas variáveis`);
-}
-*/
-
 window.onclick = function(event) {
 	const modal = document.querySelector('.modal');
     if (event.target == modal ) {
