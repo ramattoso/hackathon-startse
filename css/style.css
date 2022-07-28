@@ -44,7 +44,7 @@ p {
 
 header {
     background-image: linear-gradient(to right, #0B6DD8, #00CBCA);
-    height: 12vh;
+    height: 10vh;
     width: 100vw;
     position: fixed;
     top: 0;
@@ -56,8 +56,12 @@ header .container-menu {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: 2vh;
-    margin-inline: 12vw;
+    height: 10vh;
+    margin-inline: 250px;
+}
+
+#logo-menu {
+    margin-right: 30px;
 }
 
 header nav ul {
@@ -74,8 +78,8 @@ header nav ul li a {
     color: white;
     font-size: 1rem;
     font-weight: 700;
-    padding: 25px;
     transition: all 250ms linear 0s;
+    padding: 4vh 20px;
 }
 
 header nav ul li a:hover {
@@ -103,16 +107,18 @@ main {
     flex-direction: column;
     width: 65vh;
     padding: 25px;
-    gap: 20px;
 }
 
 .h1-simulador {
     font-size: 7vh;
-    line-height: 6vh;
+    line-height: 4.5rem;
+    margin: 20px auto;
 }
 
 #p-simulador {
     width: 50vh;
+    color: #0B6DD8;
+    font-weight: 600;
 }
 
 #form-simulador {
@@ -299,6 +305,22 @@ main {
     justify-content:space-between;
     align-items: center;
     position: relative;
+}
+
+.modal-msg {
+    /*
+    display: flex;
+    justify-content: center;
+    font-size: 0.5rem;
+    */
+    color: #0B6DD8;
+}
+
+.modal-text {
+    display: flex;
+    justify-content: center;
+    font-size: 0.75rem;    
+    color: #0B6DD8;
 }
 
 /* FOOTER */

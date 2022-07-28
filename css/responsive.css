@@ -33,7 +33,7 @@
     }
 }
 
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
     #checkbox-menu {
         display: none;
     }
@@ -45,7 +45,7 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
     .menu-button-container {
         display: flex
     }
@@ -154,14 +154,13 @@
     }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
     #content-simulador {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-top: 50px;
-        gap: 20px;
     }
 
     #div-simulador {
@@ -171,10 +170,10 @@
         text-align: center;
         width: 65vh;
         padding: 25px;
-        gap: 20px;
     }
 
     #h1-simulador {
         font-size: 6vh;
+        text-align: center;
     }
 }
