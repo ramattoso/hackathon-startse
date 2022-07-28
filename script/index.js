@@ -56,7 +56,7 @@ function getSimulator() {
     <br>
     <h3>Total Aculumado</h3>
     <br>
-    <p class = "modal-msg">Periodo de captação &emsp; ${prazoMeses} meses</p>
+    <p class = "modal-msg">Periodo de Captação &emsp; ${prazoMeses} meses</p>
     <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${acumResultSimulacao} </p>
     <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(aporteInicial)}</p>
     <p class = "modal-msg">Aporte Mensal &emsp; ${acumResultAporteMensal}</p>
