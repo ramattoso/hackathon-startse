@@ -15,14 +15,14 @@
         margin-left: 50px;
     }
 
-    form {
+    /* form {
         display: flex;
         align-items: center;
         width: 100%;
         padding-top: 30px;
         text-align: center;
         flex-direction: column;
-    }
+    } */
 
     input {
         margin: 12px;
@@ -99,7 +99,7 @@
         opacity: 0;
     }
 
-    label {
+    .menu-button-container {
         cursor: pointer;
         position: fixed;
         right: 30px;
@@ -160,20 +160,26 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: -50px;
     }
 
     #div-simulador {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        margin: auto;
         width: 65vh;
-        padding: 25px;
+        padding-bottom: 20px;
+        padding-left: 45px;
     }
 
     #h1-simulador {
         font-size: 6vh;
         text-align: center;
+    }
+    .label-simulador {
+        font-size: 1rem;
+    }
+
+    #form-simulador {
+        height: auto;
+        width: auto;
     }
 }

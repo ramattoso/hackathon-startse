@@ -129,8 +129,8 @@ main {
     border-radius: 25px;
     padding: 30px;
     color: white;
-    height: 75vh;
-    width: 50vh;
+    height: 600px;
+    width: 300px;
 }
 
 .label-input-simulador {
@@ -139,9 +139,9 @@ main {
     gap: 10px;
 }
 
-.label-simulador {
+/* .label-simulador {
     font-weight: 600;
-}
+} */
 
 .input-simulador {
     border-radius: 25px;
@@ -165,6 +165,7 @@ main {
     padding: 15px;
     font-weight: 700;
     font-size: x-large;
+    margin: 10px; 
 }
 
 #button-simulador:hover {
