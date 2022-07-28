@@ -161,7 +161,6 @@
         align-items: center;
         justify-content: center;
         margin-top: 50px;
-        gap: 20px;
     }
 
     #div-simulador {
@@ -171,10 +170,10 @@
         text-align: center;
         width: 65vh;
         padding: 25px;
-        gap: 20px;
     }
 
     #h1-simulador {
         font-size: 6vh;
+        text-align: center;
     }
 }

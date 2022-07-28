@@ -100,15 +100,18 @@ main {
     flex-direction: column;
     width: 65vh;
     padding: 25px;
-    gap: 20px;
 }
 
 #h1-simulador {
     font-size: 7vh;
+    line-height: 4rem;
+    margin: 20px auto;
 }
 
 #p-simulador {
     width: 50vh;
+    color: #0B6DD8;
+    font-weight: 600;
 }
 
 #form-simulador {
