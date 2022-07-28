@@ -151,7 +151,11 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
 window.onclick = function(event) {
 	const modal = document.querySelector('.modal');
-  if (event.target == modal ) {
+    if (event.target == modal ) {
     	modal.style.display = 'none';
+        var chartExist = Chart.getChart("myChart"); // <canvas> id
+        if (chartExist != undefined) {
+            chartExist.destroy();
+        }
   }
 }
