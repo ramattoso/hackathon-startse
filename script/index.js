@@ -103,11 +103,11 @@ function getSimulator() {
     <br>
     <h3>Total Aculumado</h3>
     <p class = "modal-msg">Periodo de Captação &emsp; ${prazoMesesResult}</p>
-    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo)} </p>
-    <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(aporteInicial)}</p>
-    <p class = "modal-msg">Aporte Mensal &emsp; ${Math.floor(resultMes)}</p>
-    <p class = "modal-msg">Rendimentos &emsp;${Math.floor(totalValorFuturo.rendimentoTotal)}</p>
-    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${Math.floor(impostoRendaFixa)} </p>
+    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo).toLocaleString('pt-BR')} </p>
+    <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(resultInicio).toLocaleString('pt-BR')}</p>
+    <p class = "modal-msg">Aporte Mensal &emsp; ${Math.floor(resultMes).toLocaleString('pt-BR')}</p>
+    <p class = "modal-msg">Rendimentos &emsp;${Math.floor(totalValorFuturo.rendimentoTotal).toLocaleString('pt-BR')}</p>
+    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${Math.floor(impostoRendaFixa).toLocaleString('pt-BR')} </p>
     `);
 
     const p = document.getElementById('modal-msg');
@@ -207,6 +207,7 @@ function calculaIRRendaFixa(rendimento, prazo) {
     console.log(`Um erro aconteceu nas variáveis`);
 }
 
+/*
 function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     if (prazo < 2)
@@ -224,6 +225,8 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
 
     console.log(`Um erro aconteceu nas variáveis`);
 }
+*/
+
 window.onclick = function(event) {
 	const modal = document.querySelector('.modal');
     if (event.target == modal ) {
