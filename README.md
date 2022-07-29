@@ -13,24 +13,30 @@
 ## Desafio
 
 <center>
-o trabalho informal é um assunto complexo que afeta não só as pessoas, mas também a sociedade como um todo.
 
-O nosso projeto tem como objetivo ajudar pessoas em situação de trabalho informal a se prepararem para algo que consequentemente chegará para todos: o Futuro! 
+O trabalho informal é um assunto complexo que afeta não só as pessoas, mas também a sociedade como um todo.
+O nosso projeto tem como objetivo ajudar pessoas em situação de trabalho informal a se prepararem para algo que consequentemente chegará para todos: o Futuro!
 Então, como uma forma de conscientização financeira, preparamos um material para auxiliá-las a se prepararem para o futuro, pensando principalmente no risco que elas correm em situações de inatividade: seja doença, perda de renda ou aposentadoria.
 
-Para isso vamos mostrar: (Linkar com suas devidas páginas)
-- Possíveis investimentos, e diferenças
-- Pessoas que podem auxiliá-las no processo
-- Principais corretoras/bancos do mercado
-- Simulador de investimentos
+Para isso vamos mostrar:
 
-O objetivo do projeto não é indicar nenhum tipo de produto ou empresa, mas sim conscientizar pessoas que trabalham de forma informal que elas precisam se preparar para o futuro e que existem diversas maneiras/empresas/pessoas que podem ajuda-las. 
+- Possíveis investimentos, e diferenças entre eles;
+- Pessoas que podem auxiliá-las no processo;
+- Principais corretoras/bancos do mercado;
+- Simulador de investimentos;
+
+O objetivo do projeto não é indicar nenhum tipo de produto ou empresa, mas sim conscientizar pessoas que trabalham de forma informal que elas precisam se preparar para o futuro e que existem diversas maneiras/empresas/pessoas que podem ajuda-las.
+
 </center>
 
 ## Solução
 
 - [x] Utilização de fluxo de trabalho: [git flow](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
-- [x] Construção do Banco de Dados MySQL
+- [x] Construção do Banco de Dados MySQL rodado no Heroku
+- [x] Criação da API que fornece conexão com o Banco de Dados e faz o processamento de simulação Financeira respondendo ao FrontEnd. 
+
+**Repositório da API:** https://github.com/Luanftg/teste-Back-StartSE.git
+
 - [x] Instalação das libs:
   - [x] [express](http://expressjs.com/pt-br/)
   - [x] [nodemon](https://nodemon.io/)
@@ -50,9 +56,17 @@ O objetivo do projeto não é indicar nenhum tipo de produto ou empresa, mas sim
   - [x] DELETE `/usuario/:id`
   - [x] PUT `/usuario/:id`
 
-## Projeto Finalizado
+## Próximos Passos no Desenvolvimento
 
-### Referências:
+- [ ] componentizar o front-end
+- [ ] login e autenticação do usuário
+- [ ] gerar relatório da simulação
+- [ ] enviar relatório por email
+- [ ] conectar com APIs públicas de Finanças:
+  - [ ] [B3](https://developers.b3.com.br/apis-br)
+  - [ ] [OpenBank](https://api.openbankproject.com/)
+
+### Referências
 
 [ChartJs](https://www.chartjs.org/docs/latest/getting-started/)
 
@@ -61,19 +75,3 @@ O objetivo do projeto não é indicar nenhum tipo de produto ou empresa, mas sim
 <a target="_blank" href="https://icons8.com/icon/108784/javascript">JavaScript icon by Icons8</a>
 <a target="_blank" href="https://icons8.com/icon/20906/git">Git icon by Icons8</a>
 <a target="_blank" href="https://icons8.com/icon/hsPbhkOH4FMe/node-js">Node Js icon by Icons8</a>
-
-- [ ] front - (estático mesmo)
-- [ ] conecta front e back para exibir gráfico
-- [ ] script para conectar o banco (heroku?)
-- [ ] subir a api (heroku?)
-- [ ] documentar api
-- [ ] componentizar
-- [ ] autenticação
-
- ``<script>
-  javascript:saveData()
-                function saveData() {
-                    var paracomecar = document.getElementById('para-comecar');
-                    console.log(paracomecar.value);
-                }
-  </script>``
