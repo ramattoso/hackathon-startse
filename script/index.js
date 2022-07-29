@@ -218,7 +218,7 @@ function valorFuturoDoAporteInicial(aporteInicial, taxaAoMes, prazoAoMes) {
     return aporteInicial * (1 + taxaAoMes / 100) ** prazoAoMes;
 }
 
-function converteTaxaAnualParaMensal(taxaAnual) { //, prazoMensal) {
+function converteTaxaAnualParaMensal(taxaAnual) {
     return (((1 + (taxaAnual / 100)) ** (1 / 12)) - 1) * 100
 }
 
@@ -253,7 +253,8 @@ function calculaIRPrevidênciaPrivada(rendimento, prazo) {
         return rendimento * 0.1;
 
     console.log(`Um erro aconteceu nas variáveis`);
-}
+};
+
 window.onclick = function(event) {
 	const modal = document.querySelector('.modal');
     if (event.target == modal ) {
@@ -262,4 +263,4 @@ window.onclick = function(event) {
             chartExist.destroy();
         }
   }
-}
+;}
