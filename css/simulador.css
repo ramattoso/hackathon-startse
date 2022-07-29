@@ -3,23 +3,24 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin-top: 75px;
+    gap: 50px;
 }
+
 #div-simulador {
     display: flex;
     flex-direction: column;
-    width: 65vh;
+    width: auto;
+    max-width: 55vh;
     padding: 25px;
 }
 
 .h1-simulador {
     font-size: 7vh;
-    line-height: 6vh;
-    /* margin: 20px auto; */
+    line-height: 7.5vh;
+    margin: 20px auto;
 }
 
 #p-simulador {
-    width: 50vh;
     color: #0B6DD8;
     font-weight: 600;
 }
@@ -31,9 +32,8 @@
     background: linear-gradient(141.06deg, #0B6DD8 0%, #00CBCA 110.62%);
     border-radius: 25px;
     padding: 30px;
+    gap: 20px;
     color: white;
-    height: 600px;
-    width: 300px;
 }
 
 .label-input-simulador {
@@ -41,10 +41,6 @@
     flex-direction: column;
     gap: 10px;
 }
-
-/* .label-simulador {
-    font-weight: 600;
-} */
 
 .input-simulador {
     border-radius: 25px;
@@ -64,12 +60,13 @@
     border-radius: 25px;
     background-color: #00CBCA;
     border: none;
-    color:white;
+    color: white;
     padding: 15px;
     font-weight: 700;
     font-size: x-large;
-    margin: 10px; 
+    margin-top: 10px;
 }
+
 #button-simulador:hover {
     transform: scale(1.1, 1.1);
     box-shadow: 3px 3px 30px 3px #0B6DD8;
@@ -79,30 +76,30 @@
 /* Gráfico */
 
 .modal {
-	display: none;
-	position: fixed;
-	z-index: 6;
-	left: 10%;
-	top: 12%;
-	width: 80%;
-	height: 80%;
-	overflow: auto;
-	background-color: rgba(0,0,0,0.5); 
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-	background-color: black;
-	margin: 15% auto;
+    margin: 75px auto auto auto;
     padding-left: 3rem;
-	padding: 1.3rem;
+    padding: 1.3rem;
     border-radius: 1.5rem;
-	width: 55%;
-    z-index: 5;
+    width: 35%;
+    min-width: 350px;
+    background-color: white;
 }
 
 .modal-header {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     position: relative;
 }
@@ -112,13 +109,10 @@
     flex-direction: column;
     justify-content: center;
     font-size: 1rem;
-    color: #0B6DD8;
 }
 
 .modal-text {
     display: flex;
     justify-content: center;
-    font-size: 0.75rem;    
-    color: #0B6DD8;
+    font-size: 0.75rem;
 }
-

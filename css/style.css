@@ -67,16 +67,38 @@ main {
     list-style-position: inside;
 }
 .list li {
-    margin: 8px 0px;
+    margin: 25px;
 }
+
+table th, table td {
+    padding: 5px 15px;
+}
+
+table {
+    margin: 20px;
+}
+
 .logoEmpresas {
     width: 125px;
 }
+
+.empresa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    width: auto;
+}
+
+.empresas-22 {
+    margin-top: 50px;
+}
+
 .orderlist {
     list-style-position: inside;
 }
 .orderlist li {
-    margin: 8px 0;
+    margin: 25px;
 }
 #subir{
 	position:fixed;

@@ -4,9 +4,7 @@
 }
 
 #team {
-    width: 90%;
     max-width: 1020px;
-    margin: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 20px;
