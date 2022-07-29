@@ -13,7 +13,7 @@
 ## Desafio
 
 <center>
-Como podemos ver aqui (linkar com a página do Trabalho Informal), o trabalho informal é um assunto complexo que afeta não só as pessoas, mas também a sociedade como um todo.
+o trabalho informal é um assunto complexo que afeta não só as pessoas, mas também a sociedade como um todo.
 
 O nosso projeto tem como objetivo ajudar pessoas em situação de trabalho informal a se prepararem para algo que consequentemente chegará para todos: o Futuro! 
 Então, como uma forma de conscientização financeira, preparamos um material para auxiliá-las a se prepararem para o futuro, pensando principalmente no risco que elas correm em situações de inatividade: seja doença, perda de renda ou aposentadoria.

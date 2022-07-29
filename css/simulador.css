@@ -1,0 +1,124 @@
+#content-simulador {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 75px;
+}
+#div-simulador {
+    display: flex;
+    flex-direction: column;
+    width: 65vh;
+    padding: 25px;
+}
+
+.h1-simulador {
+    font-size: 7vh;
+    line-height: 6vh;
+    /* margin: 20px auto; */
+}
+
+#p-simulador {
+    width: 50vh;
+    color: #0B6DD8;
+    font-weight: 600;
+}
+
+#form-simulador {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: linear-gradient(141.06deg, #0B6DD8 0%, #00CBCA 110.62%);
+    border-radius: 25px;
+    padding: 30px;
+    color: white;
+    height: 600px;
+    width: 300px;
+}
+
+.label-input-simulador {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* .label-simulador {
+    font-weight: 600;
+} */
+
+.input-simulador {
+    border-radius: 25px;
+    border: none;
+    height: 5vh;
+    padding: 2vh;
+    font-size: large;
+    font-weight: 600;
+    color: #0BAAE2;
+}
+
+.input-simulador::placeholder {
+    color: #0BAAE2;
+}
+
+#button-simulador {
+    border-radius: 25px;
+    background-color: #00CBCA;
+    border: none;
+    color:white;
+    padding: 15px;
+    font-weight: 700;
+    font-size: x-large;
+    margin: 10px; 
+}
+#button-simulador:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 3px 3px 30px 3px #0B6DD8;
+    cursor: pointer;
+}
+
+/* Gráfico */
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 6;
+	left: 10%;
+	top: 12%;
+	width: 80%;
+	height: 80%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+	background-color: black;
+	margin: 15% auto;
+    padding-left: 3rem;
+	padding: 1.3rem;
+    border-radius: 1.5rem;
+	width: 55%;
+    z-index: 5;
+}
+
+.modal-header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    position: relative;
+}
+
+.modal-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    color: #0B6DD8;
+}
+
+.modal-text {
+    display: flex;
+    justify-content: center;
+    font-size: 0.75rem;    
+    color: #0B6DD8;
+}
+
