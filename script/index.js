@@ -1,6 +1,30 @@
+
+    async function getSimulatorBack(aporteInicial,aporteMensal, taxaAA, prazoMeses,email) {
+    const data = { 
+        aporteInicial,
+        aporteMensal,
+        taxaAA,
+        prazoMeses,
+        email
+    };
+    
+    const url = 'http://localhost:3000/simulacao';
+    
+    fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(function(res){ console.log(res.json()) })
+    .catch(function(res){ console.log(res) });
+  };
+
 var chartExist;
 
-function valida(){
+ function valida(){
 
     if(document.getElementById('para-comecar').value < 0){
         alert("Valor Inválido");
@@ -36,12 +60,14 @@ function valida(){
     getSimulator();
 }
 
-function getSimulator() {
+async function getSimulator() {
     var aporteInicial = document.getElementById('para-comecar').value;
     var aporteMensal = document.getElementById('por-mes').value;
     var taxaAA = document.getElementById('porcen').value;
     var prazoMeses = document.getElementById('tempo').value;
     var email = document.getElementById('email').value;
+
+    getSimulatorBack(aporteInicial,aporteMensal, taxaAA, prazoMeses,email);
 
     const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAA); //,prazoMeses);
     const resultAporteInicial = [];
@@ -103,11 +129,11 @@ function getSimulator() {
     <br>
     <h3>Total Aculumado</h3>
     <p class = "modal-msg">Periodo de Captação &emsp; ${prazoMesesResult}</p>
-    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo).toLocaleString('pt-BR')} </p>
-    <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(resultInicio).toLocaleString('pt-BR')}</p>
-    <p class = "modal-msg">Aporte Mensal &emsp; ${Math.floor(resultMes).toLocaleString('pt-BR')}</p>
-    <p class = "modal-msg">Rendimentos &emsp;${Math.floor(totalValorFuturo.rendimentoTotal).toLocaleString('pt-BR')}</p>
-    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${Math.floor(impostoRendaFixa).toLocaleString('pt-BR')} </p>
+    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo)} </p>
+    <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(aporteInicial)}</p>
+    <p class = "modal-msg">Aporte Mensal &emsp; ${Math.floor(resultMes)}</p>
+    <p class = "modal-msg">Rendimentos &emsp;${Math.floor(totalValorFuturo.rendimentoTotal)}</p>
+    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${Math.floor(impostoRendaFixa)} </p>
     `);
 
     const p = document.getElementById('modal-msg');
@@ -171,7 +197,11 @@ function getSimulator() {
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
-    );
+    );  
+
+    const chartbase64 =  await myChart.toBase64Image('image/jpeg', 1);
+
+    console.log(chartbase64);
 
     chartExist = Chart.getChart("myChart");
 
@@ -195,7 +225,7 @@ function valorFuturoDoAporteInicial(aporteInicial, taxaAoMes, prazoAoMes) {
     return aporteInicial * (1 + taxaAoMes / 100) ** prazoAoMes;
 }
 
-function converteTaxaAnualParaMensal(taxaAnual) { //, prazoMensal) {
+function converteTaxaAnualParaMensal(taxaAnual) {
     return (((1 + (taxaAnual / 100)) ** (1 / 12)) - 1) * 100
 }
 
@@ -214,6 +244,24 @@ function calculaIRRendaFixa(rendimento, prazo) {
     console.log(`Um erro aconteceu nas variáveis`);
 }
 
+function calculaIRPrevidênciaPrivada(rendimento, prazo) {
+
+    if (prazo < 2)
+        return rendimento * 0.35;
+    if (prazo >= 2 && prazo < 4)
+        return rendimento * 0.3;
+    if (prazo >= 4 && prazo < 6)
+        return rendimento * 0.25;
+    if (prazo >= 6 && prazo < 8)
+        return rendimento * 0.2;
+    if (prazo >= 8 && prazo < 10)
+        return rendimento * 0.15;
+    if (prazo >= 10)
+        return rendimento * 0.1;
+
+    console.log(`Um erro aconteceu nas variáveis`);
+};
+
 window.onclick = function(event) {
 	const modal = document.querySelector('.modal');
     if (event.target == modal ) {
@@ -222,4 +270,4 @@ window.onclick = function(event) {
             chartExist.destroy();
         }
   }
-}
+;}
