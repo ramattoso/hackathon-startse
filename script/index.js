@@ -158,7 +158,14 @@ function getSimulator() {
     const config = {
         type: 'line',
         data: data,
-        options: {}
+        options: {
+            animation: {
+              onComplete: function() {
+                console.log(myChart.toBase64Image());
+                teste=(myChart.toBase64Image());
+              }
+            }
+        }
     };
     
     const myChart = new Chart(
