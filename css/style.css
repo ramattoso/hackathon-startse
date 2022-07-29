@@ -29,14 +29,15 @@ body {
 h1 {
     color: #00CBCA;
     text-align: left; 
-    margin: 2.5rem auto;
-    font-size: 1.5rem;
+    margin: 1rem auto;
+    font-size: 2rem;
+    line-height: 2.5rem;
 }
 h3 {
     font-weight: 600;
     color: #0B6DD8;
     text-align: left;
-    margin: 1rem auto;
+    margin: 2rem 0 1rem 0;
 }
 p {
     font-size: 1rem;
@@ -49,11 +50,18 @@ main {
     width: 70vw;
     margin: 20vh 12vw;
 }
+
+.img-principal {
+    display: block;
+    margin: 25px auto;
+    width: 100%;
+}
+
 .imgcenter {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 35px auto;
 }
+
 .list {
     list-style: square;
     list-style-position: inside;
@@ -86,7 +94,7 @@ footer {
     background-image: linear-gradient(to right, #0B6DD8, #00CBCA);
 }
 footer p {
-    font-weight: 600;
+    font-weight: 500;
     font-size: small;
     color: white;
 }

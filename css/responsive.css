@@ -4,6 +4,12 @@
     }
 }
 
+@media (max-width: 450px) {
+    footer p {
+        font-size: 50%;
+    }
+}
+
 @media (max-width: 1000px) {
     /* main */
     h2 {
@@ -16,7 +22,7 @@
         margin: 12px;
     }    
     .imgcenter {
-        width: 74vw;
+        width: 75vw;
     }
 
     /* menu */
