@@ -128,12 +128,12 @@ async function getSimulator() {
     modalHTM = (`
     <br>
     <h3>Total Aculumado</h3>
-    <p class = "modal-msg">Periodo de Captação &emsp; ${prazoMesesResult}</p>
-    <p class = "modal-msg">Valor Futuro Total do Investimento &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo)} </p>
-    <p class = "modal-msg">Aporte Inicial &emsp; ${Math.floor(aporteInicial)}</p>
-    <p class = "modal-msg">Aporte Mensal &emsp; ${Math.floor(resultMes)}</p>
-    <p class = "modal-msg">Rendimentos &emsp;${Math.floor(totalValorFuturo.rendimentoTotal)}</p>
-    <p class = "modal-msg">Imposto Renda Fixa &emsp; ${Math.floor(impostoRendaFixa)} </p>
+    <p class = "modal-msg">Periodo de Captação:  &emsp; ${prazoMesesResult}</p>
+    <p class = "modal-msg">Valor Futuro Total do Investimento: R$ &emsp; ${Math.floor(totalValorFuturo.totalValorFuturo)} </p>
+    <p class = "modal-msg">Aporte Inicial: R$ &emsp; ${Math.floor(aporteInicial)}</p>
+    <p class = "modal-msg">Aporte Mensal: R$ &emsp; ${Math.floor(resultMes)}</p>
+    <p class = "modal-msg">Rendimentos: R$ &emsp;${Math.floor(totalValorFuturo.rendimentoTotal)}</p>
+    <p class = "modal-msg">Imposto Renda Fixa: R$ &emsp; ${Math.floor(impostoRendaFixa)} </p>
     `);
 
     const p = document.getElementById('modal-msg');
