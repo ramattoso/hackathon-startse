@@ -1,6 +1,35 @@
+
+    async function getSimulatorBack(aporteInicial,aporteMensal, taxaAA, prazoMeses,email) {
+    const data = { 
+        aporteInicial,
+        aporteMensal,
+        taxaAA,
+        prazoMeses,
+        email
+    };
+
+    const url = 'http://localhost:3000/simulacao';
+    // const options = {
+    //   method: 'POST',
+    //   headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    //   data: qs.stringify(data),
+    //   url,
+    // };
+    fetch(url,
+    {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+    }).then(function(res){ console.log(res.json()) })
+    .catch(function(res){ console.log(res) });
+  };
+
 var chartExist;
 
-function valida(){
+ function valida(){
 
     if(document.getElementById('para-comecar').value < 0){
         alert("Valor Inválido");
@@ -36,12 +65,14 @@ function valida(){
     getSimulator();
 }
 
-function getSimulator() {
+async function getSimulator() {
     var aporteInicial = document.getElementById('para-comecar').value;
     var aporteMensal = document.getElementById('por-mes').value;
     var taxaAA = document.getElementById('porcen').value;
     var prazoMeses = document.getElementById('tempo').value;
     var email = document.getElementById('email').value;
+
+    getSimulatorBack(aporteInicial,aporteMensal, taxaAA, prazoMeses,email);
 
     const taxaConvertidaAoMes = converteTaxaAnualParaMensal(taxaAA); //,prazoMeses);
     const resultAporteInicial = [];
@@ -164,7 +195,11 @@ function getSimulator() {
     const myChart = new Chart(
         document.getElementById('myChart'),
         config
-    );
+    );  
+
+    const chartbase64 =  await myChart.toBase64Image('image/jpeg', 1);
+
+    console.log(chartbase64);
 
     chartExist = Chart.getChart("myChart");
 
