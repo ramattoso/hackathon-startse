@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
 }
+
 #team {
     width: 90%;
     max-width: 1020px;
@@ -12,51 +13,57 @@
     padding-bottom: 50px;
     padding-top: 50px;
 }
+
 .card {
-    display: flex;
-    flex-direction: column;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 5px 5px 15px -4px #000000;
+    box-shadow: 5px 5px 15px -4px #0B6DD8;
     transition: all 0.3s ease 0s;
     background-image: linear-gradient(to bottom, #0B6DD8, #00CBCA);
 }
+
 .card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-5px);
 }
+
 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 20px 10px;
 }
-.card-name .card-function {
-    font-size: 14px;
-    line-height: 26px;
-    font-weight: 400;
-    color: white;
-}
+
 .image {
-    height: 120px;
-    width: 100%;
-    padding-top: 50%;
-    overflow: hidden;
-    position: relative;
+    height: 75%;
+    width: 75%;
 }
-.image img {
-    position: absolute;
-    border-radius: 10px;
-    top: 10%;
-    left: 18%;
-    height: 100px;
-    width: 100px;
-}
+
 .social {
     display: flex;
     justify-content: center;
+    filter: invert(100%);
 }
+
 #git {
     margin: 15px 3px 2px 3px;
     max-height: 25px;
 }
+
 #linkedin {
     margin: 15px 3px 2px 3px;
     max-height: 25px;
+}
+
+.card-name {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.card-function {
+    color: white;
+    font-size: small;
+    text-align: center;
+    margin: 0;
 }
