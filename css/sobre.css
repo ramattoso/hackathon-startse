@@ -1,0 +1,62 @@
+#about {
+    display: flex;
+    flex-direction: column;
+}
+#team {
+    width: 90%;
+    max-width: 1020px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px -4px #000000;
+    transition: all 0.3s ease 0s;
+    background-image: linear-gradient(to bottom, #0B6DD8, #00CBCA);
+}
+.card:hover {
+    transform: translateY(-7px);
+}
+.content {
+    margin: 20px 10px;
+}
+.card-name .card-function {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    color: white;
+}
+.image {
+    height: 120px;
+    width: 100%;
+    padding-top: 50%;
+    overflow: hidden;
+    position: relative;
+}
+.image img {
+    position: absolute;
+    border-radius: 10px;
+    top: 10%;
+    left: 18%;
+    height: 100px;
+    width: 100px;
+}
+.social {
+    display: flex;
+    justify-content: center;
+}
+#git {
+    margin: 15px 3px 2px 3px;
+    max-height: 25px;
+}
+#linkedin {
+    margin: 15px 3px 2px 3px;
+    max-height: 25px;
+}
